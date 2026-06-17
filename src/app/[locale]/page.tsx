@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { HeroSection } from "@/components/sections/hero-section";
-import { AnnouncementsSection } from "@/components/sections/announcements-section";
-import { FacultiesSection } from "@/components/sections/faculties-section";
-import { EventsSection } from "@/components/sections/events-section";
-import { StatsSection } from "@/components/sections/stats-section";
+import { Container } from "@/components/ui/container";
+import { HomeExperience } from "@/components/home/HomeExperience";
 import { getContentService } from "@/services/content";
 import { siteConfig } from "@/config/site";
 import { routing } from "@/i18n/routing";
@@ -42,19 +39,14 @@ export default async function HomePage({ params }: Props) {
   setRequestLocale(locale);
 
   const contentService = getContentService();
-  const [announcements, events, stats] = await Promise.all([
+  const [announcements, events] = await Promise.all([
     contentService.getAnnouncements(),
     contentService.getEvents({ limit: 6 }),
-    contentService.getStats(),
   ]);
 
   return (
     <main id="main-content">
-      <HeroSection />
-      <EventsSection events={events} />
-      <FacultiesSection />
-      <AnnouncementsSection announcements={announcements} />
-      <StatsSection stats={stats} />
+      <HomeExperience events={events} announcements={announcements} />
     </main>
   );
 }

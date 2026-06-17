@@ -31,53 +31,56 @@ function CenterPanel({
       href={href}
       className={cn(
         "group relative z-0 flex min-h-[22rem] flex-1 overflow-hidden outline-none md:min-h-[28rem]",
-        "transition-transform duration-700 ease-out will-change-transform group-hover:scale-[1.06] group-hover:z-10",
         "focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1a33]",
         clipClass,
       )}
     >
       <div
-        className={cn("absolute inset-0", accentGradient)}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute inset-0 opacity-[0.35]"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(147, 197, 253, 0.08) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(147, 197, 253, 0.08) 1px, transparent 1px)
-          `,
-          backgroundSize: "32px 32px",
-        }}
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 opacity-20 transition-opacity duration-500 group-hover:opacity-35"
-        aria-hidden="true"
+        className={cn(
+          "absolute inset-0 origin-center transition-transform duration-700 ease-out will-change-transform",
+          "group-hover:scale-110",
+        )}
       >
-        {graphic}
-      </div>
+        <div className={cn("absolute inset-0", accentGradient)} aria-hidden="true" />
+        <div
+          className="absolute inset-0 opacity-[0.35]"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(147, 197, 253, 0.08) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(147, 197, 253, 0.08) 1px, transparent 1px)
+            `,
+            backgroundSize: "32px 32px",
+          }}
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20 transition-opacity duration-500 group-hover:opacity-35"
+          aria-hidden="true"
+        >
+          {graphic}
+        </div>
 
-      <div className="relative z-10 flex h-full flex-col items-center justify-end p-8 text-center md:p-12 lg:p-14">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
-          {centerName}
-        </p>
-        <h3 className="mt-2 text-4xl font-black tracking-tight text-white md:text-5xl lg:text-6xl">
-          {city}
-        </h3>
-        <p className="mt-4 max-w-md text-sm leading-relaxed text-white/65 md:text-base">
-          {subtitle}
-        </p>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <span className="rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold text-white/80 backdrop-blur-sm">
-            {facultyCount} facultăți
-          </span>
-          <span className="inline-flex items-center gap-2 text-sm font-semibold text-accent-cyan">
-            {exploreLabel}
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </span>
+        <div className="relative z-10 flex h-full min-h-[22rem] flex-col items-center justify-center p-8 text-center md:min-h-[28rem] md:p-12 lg:p-14">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
+            {centerName}
+          </p>
+          <h3 className="mt-2 text-4xl font-black tracking-tight text-white md:text-5xl lg:text-6xl">
+            {city}
+          </h3>
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-white/65 md:text-base">
+            {subtitle}
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <span className="rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold text-white/80 backdrop-blur-sm">
+              {facultyCount} facultăți
+            </span>
+            <span className="inline-flex items-center gap-2 text-sm font-semibold text-accent-cyan">
+              {exploreLabel}
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </div>
         </div>
       </div>
     </Link>
@@ -88,7 +91,7 @@ function BucharestGraphic() {
   return (
     <svg width="280" height="280" viewBox="0 0 280 280" fill="none" aria-hidden="true">
       <circle cx="140" cy="140" r="120" stroke="#93c5fd" strokeWidth="1" strokeOpacity="0.4" />
-      <circle cx="140" cy="140" r="80" stroke="#eed202" strokeWidth="1" strokeOpacity="0.35" />
+      <circle cx="140" cy="140" r="80" stroke="#06b6d4" strokeWidth="1" strokeOpacity="0.35" />
       <path
         d="M70 200 L140 60 L210 200 Z"
         stroke="#f8fafc"
@@ -105,12 +108,6 @@ function PitestiGraphic() {
   return (
     <svg width="280" height="280" viewBox="0 0 280 280" fill="none" aria-hidden="true">
       <rect x="40" y="40" width="200" height="200" rx="8" stroke="#06b6d4" strokeWidth="1" strokeOpacity="0.35" />
-      <path
-        d="M40 140 H240 M140 40 V240"
-        stroke="#93c5fd"
-        strokeWidth="1"
-        strokeOpacity="0.25"
-      />
       <circle cx="140" cy="140" r="48" stroke="#eed202" strokeWidth="1.5" strokeOpacity="0.4" fill="none" />
       <path d="M92 180 Q140 100 188 180" stroke="#f8fafc" strokeWidth="1" strokeOpacity="0.2" fill="none" />
     </svg>
@@ -118,8 +115,6 @@ function PitestiGraphic() {
 }
 
 function stripCityFromCenterName(name: string, city: string) {
-  // The mock names include the city (e.g. "Centrul Universitar București").
-  // We want the small uppercase tag to be without the city.
   return name.replace(city, "").replace(/\s+/g, " ").trim() || name;
 }
 
@@ -132,7 +127,7 @@ export function UniversityCentersSplit({
   const pit = universityCenters.pitesti;
 
   return (
-    <div className="relative flex flex-col md:flex-row">
+    <div className="relative flex w-full flex-col md:flex-row">
       <CenterPanel
         href="/centre-universitar/bucuresti"
         city="București"

@@ -33,7 +33,7 @@ export function Header() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        scrolled ? "glass py-3 shadow-glass" : "bg-transparent py-5",
+        scrolled ? "nav-glass-solid py-3 shadow-glass" : "bg-transparent py-5",
       )}
     >
       <Container as="nav" aria-label="Navigare principală">

@@ -53,21 +53,21 @@ export function HeroSection() {
             </FadeInView>
 
             <FadeInView delay={0.4}>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
+              <div className="mt-8 flex flex-nowrap items-center gap-2 sm:gap-3">
                 <Link
                   href="/centre-universitar/bucuresti"
-                  className={cn(buttonVariants({ variant: "primary", size: "md" }))}
+                  className={cn(
+                    buttonVariants({ variant: "primary", size: "sm" }),
+                    "shrink px-3 text-xs sm:px-4 sm:text-sm",
+                  )}
                 >
                   {t("ctaBucharest")}
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
                 </Link>
                 <Link
                   href="/centre-universitar/pitesti"
                   className={cn(
-                    buttonVariants({ variant: "secondary", size: "md" }),
-                    "text-white hover:text-white",
+                    buttonVariants({ variant: "secondary", size: "sm" }),
+                    "shrink px-3 text-xs text-white hover:text-white sm:px-4 sm:text-sm",
                   )}
                 >
                   {t("ctaPitesti")}

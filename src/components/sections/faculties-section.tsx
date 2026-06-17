@@ -21,15 +21,9 @@ export async function FacultiesSection() {
         </FadeInView>
       </Container>
 
-      <div className="relative bg-[#0a1a33]">
-        <div className="absolute inset-0 millimetric-paper opacity-30" aria-hidden="true" />
-
-        <Container className="relative z-10 py-16 md:py-20">
-          <FadeInView delay={0.15}>
-            <UniversityCentersSplit exploreLabel={t("explore")} />
-          </FadeInView>
-        </Container>
-      </div>
+      <FadeInView delay={0.15}>
+        <UniversityCentersSplit exploreLabel={t("explore")} />
+      </FadeInView>
     </section>
   );
 }
